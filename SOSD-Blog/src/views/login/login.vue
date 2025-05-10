@@ -230,13 +230,13 @@ export default {
 
 .login-card {
   background: rgba(255,255,255, 0.1);
-  border-radius: 12px; /* 使用原 border-radius 的值 */
+  border-radius: 20px; /* 使用原 border-radius 的值 */
   padding: 50px;
+  margin-left: 25px;
   width: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 使用原 shadow-color 的值 */
   backdrop-filter: blur(10px);
   border: 3px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
   transition: all 0.3s ease; /* 使用原 transition 的值 */
 }
 

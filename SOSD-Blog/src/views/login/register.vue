@@ -23,13 +23,15 @@
 
       <div class="content-section fade-in-right">
         <div class="animation-wrapper">
-          <Vue3Lottie
-            width="400px"
-            height="400px"
-            :animation-data="animationData"
-            :loop="true"
-            :speed="0.8"
-          />
+          <div class="lottie-animation">
+            <Vue3Lottie
+              width="900px"
+              height="900px"
+              :animation-data="animationData"
+              :loop="true"
+              :speed="0.8"
+            />
+          </div>
         </div>
 
         <div class="register-card-wrapper">
@@ -62,19 +64,37 @@
                   </div>
                 </label>
               </div>
-
+              <div class="form-group">
+                <label>
+                  <span class="label-text">密码</span>
+                  <div class="input-container">
+                    <el-icon class="input-icon">
+                      <Lock />
+                    </el-icon>
+                    <input
+                      :type="passwordVisible ? 'text' : 'password'"
+                      placeholder="请输入密码"
+                      v-model="password"
+                    />
+                    <span class="toggle-password" @click="togglePasswordVisibility">
+                      <i :class="passwordVisible ? 'el-icon-view' : 'el-icon-view-close'"></i>
+                    </span>
+                  </div>
+                </label>
+              </div>
               <div class="form-group">
                 <label>
                   <span class="label-text">邮箱</span>
                   <div class="input-container">
                     <el-icon class="input-icon">
-                      <Mail />
+                      <ChatDotSquare />
                     </el-icon>
                     <input type="email" placeholder="请输入邮箱" v-model="email" />
-                    <button 
-                      class="get-code-btn" 
+                    <button
+                      class="get-code-btn"
                       :disabled="countdown > 0"
-                      @click="sendVerificationCode">
+                      @click="sendVerificationCode"
+                    >
                       {{ countdown > 0 ? `${countdown}s后重新获取` : '获取验证码' }}
                     </button>
                   </div>
@@ -86,28 +106,9 @@
                   <span class="label-text">验证码</span>
                   <div class="input-container">
                     <el-icon class="input-icon">
-                      <VerificationCode />
+                      <Key />
                     </el-icon>
                     <input type="text" placeholder="请输入验证码" v-model="verificationCode" />
-                  </div>
-                </label>
-              </div>
-
-              <div class="form-group">
-                <label>
-                  <span class="label-text">密码</span>
-                  <div class="input-container">
-                    <el-icon class="input-icon">
-                      <Lock />
-                    </el-icon>
-                    <input 
-                      :type="passwordVisible ? 'text' : 'password'" 
-                      placeholder="请输入密码" 
-                      v-model="password" 
-                    />
-                    <span class="toggle-password" @click="togglePasswordVisibility">
-                      <i :class="passwordVisible ? 'el-icon-view' : 'el-icon-view-close'"></i>
-                    </span>
                   </div>
                 </label>
               </div>
@@ -142,7 +143,7 @@ export default {
       password: '',
       passwordVisible: false,
       countdown: 0,
-      timer: null
+      timer: null,
     }
   },
   mounted() {
@@ -165,7 +166,7 @@ export default {
     togglePasswordVisibility() {
       this.passwordVisible = !this.passwordVisible
     },
-    
+
     // 发送验证码
     sendVerificationCode() {
       // 邮箱格式验证
@@ -174,10 +175,10 @@ export default {
         this.$message.error('请输入有效的邮箱地址')
         return
       }
-      
+
       // 发送验证码逻辑
       console.log('发送验证码到邮箱:', this.email)
-      
+
       // 倒计时
       this.countdown = 60
       this.timer = setInterval(() => {
@@ -186,11 +187,11 @@ export default {
           clearInterval(this.timer)
         }
       }, 1000)
-      
+
       // 模拟发送成功提示
       this.$message.success('验证码已发送，请查收邮箱')
     },
-    
+
     // 处理注册
     handleRegister() {
       // 表单验证
@@ -198,56 +199,56 @@ export default {
         this.$message.error('请输入用户名')
         return
       }
-      
+
       if (!this.name) {
         this.$message.error('请输入姓名')
         return
       }
-      
+
       if (!this.email) {
         this.$message.error('请输入邮箱')
         return
       }
-      
+
       const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
       if (!emailRegex.test(this.email)) {
         this.$message.error('请输入有效的邮箱地址')
         return
       }
-      
+
       if (!this.verificationCode) {
         this.$message.error('请输入验证码')
         return
       }
-      
+
       if (!this.password) {
         this.$message.error('请输入密码')
         return
       }
-      
+
       if (this.password.length < 6) {
         this.$message.error('密码长度至少为6位')
         return
       }
-      
+
       // 注册逻辑
       console.log('注册信息:', {
         username: this.username,
         name: this.name,
         email: this.email,
         verificationCode: this.verificationCode,
-        password: this.password
+        password: this.password,
       })
-      
+
       // 模拟注册成功
       this.$message.success('注册成功，正在跳转...')
-      
+
       // 延迟跳转
       setTimeout(() => {
         this.$router.push('/login')
       }, 1500)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -289,8 +290,8 @@ export default {
 /* Logo 图标 */
 .logo-section {
   position: absolute;
-  top: 30px;
-  left: 50px;
+  top: 5px;
+  left: 10px;
   z-index: 10;
 }
 
@@ -375,21 +376,27 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.lottie-animation {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  left: -260px;
+  top: -260px;
+}
 
 /* Register card */
 .register-card-wrapper {
-  min-width: 380px;
+  min-width: 480px;
 }
 
 .register-card {
-  background: rgba(255,255,255, 0.1);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   padding: 50px;
   width: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 3px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
   transition: all 0.3s ease;
 }
 
@@ -567,7 +574,7 @@ export default {
 
 .fade-in-left {
   animation: fadeInLeft 0.8s ease forwards;
-  margin-left: -40px;
+  margin-left: -70px;
 }
 
 .fade-in-right {
@@ -617,53 +624,53 @@ export default {
 
 /* Responsive design */
 @media (max-width: 1200px) {
- .main-content {
+  .main-content {
     flex-direction: column;
     align-items: center;
     padding: 80px 20px 40px;
   }
 
- .title-section {
+  .title-section {
     text-align: center;
     margin-bottom: 40px;
   }
 
- .title-decoration {
+  .title-decoration {
     left: 50%;
     transform: translateX(-50%);
   }
 
- .content-section {
+  .content-section {
     flex-direction: column;
   }
 }
 
 @media (max-width: 768px) {
- .logo-section {
+  .logo-section {
     top: 20px;
     left: 20px;
   }
 
- .title {
+  .title {
     font-size: 2.2rem;
   }
 
- .title-en {
+  .title-en {
     font-size: 2.4rem;
   }
 
- .animation-wrapper {
+  .animation-wrapper {
     display: none;
   }
 
- .register-card {
+  .register-card {
     padding: 25px;
   }
 }
 
 @media (max-width: 480px) {
- .register-card {
+  .register-card {
     padding: 20px 15px;
   }
 }
-</style>  
+</style>
