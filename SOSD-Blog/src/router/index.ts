@@ -1,6 +1,10 @@
 //src/router/index.ts
 
 import { homeRoute } from './routes';
+
+import { loginRoute } from './routes';
+import { registerRoute } from './routes';
+import { aboutRoute } from './routes';
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 
 export const routes: RouteRecordRaw[] = [
@@ -9,9 +13,22 @@ export const routes: RouteRecordRaw[] = [
         children: homeRoute
     },
     {
+        path: '/login',
+        children: loginRoute
+    },
+    
+    {
+        path: '/register',
+        children: registerRoute
+    },
+    {
+        path: '/about',
+        children: aboutRoute
+    },
+    {
         path: '/403',
         name: 'Forbidden',
-        component: () => import('../components/HelloWorld.vue'),
+        component: () => import('../components/Forbidden.vue'),
         meta: {
             permissionKey: null
         }
