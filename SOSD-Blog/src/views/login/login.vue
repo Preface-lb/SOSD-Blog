@@ -3,7 +3,9 @@
     <div class="background-overlay"></div>
 
     <div class="logo-section fade-in-down">
-      <img class="logo-png" src="../../assets/logotext.png" alt="Logo" />
+      <a href="/" class="inline-block">
+        <img class="logo-png" src="../../assets/logotext.png" alt="Logo" />
+      </a>
     </div>
 
     <div class="main-content">
@@ -207,7 +209,11 @@ export default {
   left: 0;
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, #4361ee, #f72585); /* 使用原 primary-color 和 secondary-color 的值 */
+  background: linear-gradient(
+    to right,
+    #4361ee,
+    #f72585
+  ); /* 使用原 primary-color 和 secondary-color 的值 */
   border-radius: 2px;
 }
 
@@ -229,7 +235,7 @@ export default {
 }
 
 .login-card {
-  background: rgba(255,255,255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 20px; /* 使用原 border-radius 的值 */
   padding: 50px;
   margin-left: 25px;
@@ -246,7 +252,7 @@ export default {
 }
 
 .card-header {
-  color: #2b2d42; 
+  color: #2b2d42;
   font-size: 20px;
   font-weight: 800;
   color: #0f2171;
@@ -276,11 +282,11 @@ export default {
   background-color: rgba(255, 255, 255, 0.916);
   border: 1px solid rgba(6, 49, 122, 0.3);
   border-radius: 15px;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 .input-container:focus-within {
-  border-color: #4361ee; 
+  border-color: #4361ee;
   box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
 }
 
@@ -371,8 +377,8 @@ export default {
 }
 
 .checkbox-container input:checked ~ .checkmark {
-  background-color: #4361ee; 
-  border-color: #4361ee; 
+  background-color: #4361ee;
+  border-color: #4361ee;
 }
 
 .checkmark:after {
@@ -401,7 +407,7 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(135deg, #4361ee, #3a56d4); 
+  background: linear-gradient(135deg, #4361ee, #3a56d4);
   color: white;
   border: none;
   border-radius: 8px;
@@ -409,7 +415,7 @@ export default {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
   position: relative;
   overflow: hidden;
@@ -443,13 +449,12 @@ export default {
   display: block;
   text-align: center;
   margin-top: 15px;
-  color: #4361ee; 
+  color: #4361ee;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
-
 
 /* Animations */
 .fade-in-down {
@@ -463,14 +468,14 @@ export default {
 
 .fade-in-right {
   animation: fadeInRight 0.8s ease forwards;
-  background-color: rgba(141, 153, 174, 0.55); 
+  background-color: rgba(141, 153, 174, 0.55);
   padding: 20px;
   border-radius: 20px;
   margin-top: 20px;
   width: 120%;
   position: relative;
-  backdrop-filter: blur(10px); 
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeInDown {
@@ -508,60 +513,60 @@ export default {
 
 /* Responsive design */
 @media (max-width: 1200px) {
- .main-content {
+  .main-content {
     flex-direction: column;
     align-items: center;
     padding: 80px 20px 40px;
   }
 
- .title-section {
+  .title-section {
     text-align: center;
     margin-bottom: 40px;
   }
 
- .title-decoration {
+  .title-decoration {
     left: 50%;
     transform: translateX(-50%);
   }
 
- .content-section {
+  .content-section {
     flex-direction: column;
   }
 }
 
 @media (max-width: 768px) {
- .logo-section {
+  .logo-section {
     top: 20px;
     left: 20px;
   }
 
- .title {
+  .title {
     font-size: 2.2rem;
   }
 
- .title-en {
+  .title-en {
     font-size: 2.4rem;
   }
 
- .animation-wrapper {
+  .animation-wrapper {
     display: none;
   }
 
- .login-card {
+  .login-card {
     padding: 25px;
   }
 }
 
 @media (max-width: 480px) {
- .login-card {
+  .login-card {
     padding: 20px 15px;
   }
 
- .captcha-container {
+  .captcha-container {
     flex-direction: column;
   }
 
- .captcha {
+  .captcha {
     width: 100%;
     padding: 12px;
   }

@@ -1,10 +1,10 @@
 <template>
   <div class="lab-container">
     <div class="logo-section fade-in-down">
-  <a href="/" class="inline-block">
-    <img class="logo-png" src="../../assets/logotext.png" alt="Logo" />
-  </a>
-</div>
+      <a href="/" class="inline-block">
+        <img class="logo-png" src="../../assets/logotext.png" alt="Logo" />
+      </a>
+    </div>
     <div class="title">
       <h1>关于我们</h1>
     </div>
@@ -118,7 +118,7 @@
 }
 
 .title h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #050668;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -245,12 +245,12 @@
   .lab-content {
     padding: 1rem;
   }
-  
+
   .logo-section {
     top: 15px;
     left: 15px;
   }
-  
+
   .logo-png {
     height: 80px;
   }

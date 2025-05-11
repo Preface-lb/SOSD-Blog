@@ -3,7 +3,9 @@
     <div class="background-overlay"></div>
 
     <div class="logo-section fade-in-down">
-      <img class="logo-png" src="../../assets/logotext.png" alt="Logo" />
+      <a href="/" class="inline-block">
+        <img class="logo-png" src="../../assets/logotext.png" alt="Logo" />
+      </a>
     </div>
 
     <div class="main-content">
@@ -292,7 +294,7 @@ export default {
   position: absolute;
   top: 5px;
   left: 10px;
-  z-index: 10;
+  z-index: 100;
 }
 
 .logo-png {
