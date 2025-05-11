@@ -12,15 +12,15 @@
       </div>
 
       <div class="buttons-container">
-        <router-link 
+        <router-link
           custom
           v-slot="{ navigate }"
           to="/login"
           @mouseover="hoverButton(0)"
           @mouseleave="resetButton(0)"
         >
-          <button 
-            class="action-button fade-in-up" 
+          <button
+            class="action-button fade-in-up"
             :class="{ 'button-hovered': hoveredButton === 0 }"
             @click="navigate"
           >
@@ -85,36 +85,35 @@ export default {
   },
   methods: {
     hoverButton(index) {
-      this.hoveredButton = index;
+      this.hoveredButton = index
     },
     resetButton() {
-      this.hoveredButton = null;
-    }
+      this.hoveredButton = null
+    },
   },
   mounted() {
-    document.addEventListener('mousemove', this.handleMouseMove);
+    document.addEventListener('mousemove', this.handleMouseMove)
   },
   beforeUnmount() {
-    document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('mousemove', this.handleMouseMove)
   },
   methods: {
     handleMouseMove(event) {
-      const moveX = (event.clientX / window.innerWidth) * 10;
-      const moveY = (event.clientY / window.innerHeight) * 10;
-      
-      document.querySelector('.animated-background').style.transform = 
-        `translate(${-moveX}px, ${-moveY}px) scale(1.1)`;
+      const moveX = (event.clientX / window.innerWidth) * 10
+      const moveY = (event.clientY / window.innerHeight) * 10
+
+      document.querySelector('.animated-background').style.transform =
+        `translate(${-moveX}px, ${-moveY}px) scale(1.1)`
     },
     hoverButton(index) {
-      this.hoveredButton = index;
+      this.hoveredButton = index
     },
     resetButton() {
-      this.hoveredButton = null;
-    }
-  }
+      this.hoveredButton = null
+    },
+  },
 }
 </script>
-
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
@@ -144,7 +143,7 @@ export default {
   background-repeat: no-repeat;
   z-index: -1;
   animation: backgroundMove 30s ease-in-out infinite alternate;
-  transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   will-change: transform;
 }
 
@@ -154,13 +153,18 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
   z-index: -1;
 }
 
 .content-wrapper {
   max-width: 1500px;
-  min-height:700px;
+  min-height: 700px;
   width: 100%;
   margin-top: 0rem;
   padding: 1rem 6rem;
@@ -377,11 +381,11 @@ export default {
   .content-wrapper {
     padding: 3rem 4rem;
   }
-  
+
   .main-title {
     font-size: 3rem;
   }
-  
+
   .sub-title {
     font-size: 2.2rem;
   }
@@ -391,19 +395,19 @@ export default {
   .content-wrapper {
     padding: 2.5rem;
   }
-  
+
   .main-title {
     font-size: 2.5rem;
   }
-  
+
   .sub-title {
     font-size: 1.8rem;
   }
-  
+
   .buttons-container {
     gap: 1rem;
   }
-  
+
   .action-button {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
@@ -414,25 +418,25 @@ export default {
   .content-wrapper {
     padding: 2rem 1.5rem;
   }
-  
+
   .main-title {
     font-size: 2rem;
   }
-  
+
   .sub-title {
     font-size: 1.5rem;
   }
-  
+
   .buttons-container {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .action-button {
     width: 100%;
     justify-content: center;
   }
-  
+
   .logo-png {
     max-width: 220px;
   }
