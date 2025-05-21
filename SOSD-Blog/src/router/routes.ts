@@ -34,4 +34,12 @@ export const aboutRoute: RouteRecordRaw[] = [
         component: () => import('../views/login/about.vue'),
     },
 ];
+
+export const bloghomeRoute: RouteRecordRaw[] = [
+    {
+        name: 'BlogHome',
+        path: '/bloghome',
+        component: () => import('../views/bloghome/bloghome.vue'),
+    },
+];
     

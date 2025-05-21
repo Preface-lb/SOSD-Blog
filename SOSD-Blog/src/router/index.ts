@@ -5,6 +5,9 @@ import { homeRoute } from './routes';
 import { loginRoute } from './routes';
 import { registerRoute } from './routes';
 import { aboutRoute } from './routes';
+
+import { bloghomeRoute } from './routes';
+
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 
 export const routes: RouteRecordRaw[] = [
@@ -24,6 +27,10 @@ export const routes: RouteRecordRaw[] = [
     {
         path: '/about',
         children: aboutRoute
+    },
+    {
+        path: '/bloghome',
+        children: bloghomeRoute
     },
     {
         path: '/403',
