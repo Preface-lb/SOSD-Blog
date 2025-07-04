@@ -18,7 +18,7 @@
               <span>关注作者</span>
             </div>
             <div class="article-stats">
-              <span><el-icon><view /></el-icon> 1.8k</span>
+              <span><el-icon><View /></el-icon> 1.8k</span>
               <span><el-icon><chat-square /></el-icon> 36</span>
               <span><el-icon><star /></el-icon> 124</span>
             </div>

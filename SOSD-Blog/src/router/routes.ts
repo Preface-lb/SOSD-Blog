@@ -42,4 +42,20 @@ export const bloghomeRoute: RouteRecordRaw[] = [
         component: () => import('../views/bloghome/bloghome.vue'),
     },
 ];
+
+export const friendsRoute: RouteRecordRaw[] = [
+    {
+        name: 'Friends',
+        path: '/friends',
+        component: () => import('../views/friends/friends.vue'),
+    },
+];
+    
+export const publishRoute: RouteRecordRaw[] = [
+    {
+        name: 'Publish',
+        path: '/publish',
+        component: () => import('../views/publish/publish.vue'),
+    },
+];
     

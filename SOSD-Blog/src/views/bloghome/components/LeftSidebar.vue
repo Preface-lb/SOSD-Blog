@@ -9,7 +9,7 @@
         class="nav-menu"
         background-color="transparent"
         text-color="#333"
-        active-text-color="#1e40af"
+        active-text-color="#4338ca"
         @select="handleMenuSelect"
       >
         <el-menu-item index="follow" class="nav-item">
@@ -17,97 +17,62 @@
             <el-icon><star-filled /></el-icon>
           </div>
           <span>关注</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="comprehensive" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'comprehensive' }">
             <el-icon><collection /></el-icon>
           </div>
           <span>综合</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="backend" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'backend' }">
             <el-icon><cpu /></el-icon>
           </div>
           <span>后端</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="frontend" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'frontend' }">
             <el-icon><monitor /></el-icon>
           </div>
           <span>前端</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="android" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'android' }">
-            <el-icon><phone /></el-icon>
+            <el-icon><Cellphone /></el-icon>
           </div>
           <span>Android</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="ios" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'ios' }">
-            <el-icon><apple /></el-icon>
+            <el-icon><Iphone /></el-icon>
           </div>
           <span>iOS</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="ai" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'ai' }">
             <el-icon><connection /></el-icon>
           </div>
           <span>人工智能</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="tools" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'tools' }">
             <el-icon><tools /></el-icon>
           </div>
           <span>开发工具</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
         <el-menu-item index="life" class="nav-item">
           <div class="nav-item-icon" :class="{ active: activeMenuItem === 'life' }">
             <el-icon><user /></el-icon>
           </div>
           <span>代码人生</span>
-          <div class="nav-item-indicator"></div>
         </el-menu-item>
       </el-menu>
-      
-      <div class="sidebar-footer">
-        <div class="theme-toggle">
-          <el-icon><moon /></el-icon>
-          <span>深色模式</span>
-          <el-switch
-            v-model="darkMode"
-            inline-prompt
-            class="theme-switch"
-          />
-        </div>
-      </div>
     </div>
   </el-aside>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { 
-  StarFilled, 
-  Collection, 
-  Cpu, 
-  Monitor, 
-  Phone, 
-  Apple, 
-  Connection, 
-  Tools, 
-  User,
-  Moon
-} from '@element-plus/icons-vue'
-
-const darkMode = ref(false)
 
 // Props
 const props = defineProps({
@@ -127,10 +92,10 @@ const handleMenuSelect = (index) => {
 </script>
 
 <style scoped>
-/* Left Sidebar Styles */
+/* Left Sidebar Styles - 卡通风格 */
 .left-sidebar {
-  background-color: white;
-  border-right: 1px solid rgba(226, 232, 240, 0.8);
+  background-color: #f8fafc;
+  border-right: 2px solid #e2e8f0;
   height: calc(100vh - 70px);
   position: relative;
   overflow: hidden;
@@ -141,17 +106,31 @@ const handleMenuSelect = (index) => {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
+  padding: 24px 0;
   overflow-y: auto;
 }
 
 .category-title {
   padding: 0 24px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4338ca;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+  margin-left: 24px;
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #c7d2fe;
+  z-index: -1;
+  border-radius: 4px;
 }
 
 .nav-menu {
@@ -162,35 +141,54 @@ const handleMenuSelect = (index) => {
 .nav-item {
   height: 56px;
   line-height: 56px;
-  margin: 4px 16px;
-  border-radius: 10px;
-  padding: 0 8px;
+  margin: 14px 16px;
+  border-radius: 16px;
+  padding: 0 12px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   position: relative;
   transition: all 0.3s;
+  overflow: hidden;
 }
 
-.nav-item:hover {
-  background-color: rgba(30, 64, 175, 0.05);
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #e0e7ff;
+  z-index: -1;
+  transition: width 0.3s ease;
+  border-radius: 16px;
+}
+
+.nav-item:hover::before {
+  width: 100%;
 }
 
 .nav-item-icon {
+  box-sizing: border-box; /* 使内边距包含在总尺寸内 */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  margin-right: 12px;
-  background-color: #f1f5f9;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  margin-right: 10px;
+  padding-left: 5px;
+  padding-top: 3px;
+  background-color: #e2e8f0;
   transition: all 0.3s;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .nav-item-icon.active,
 .el-menu-item.is-active .nav-item-icon {
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 rgba(67, 56, 202, 0.3);
 }
 
 .nav-item-icon.active .el-icon,
@@ -199,55 +197,21 @@ const handleMenuSelect = (index) => {
 }
 
 .el-icon {
-  font-size: 18px;
+  font-size: 20px;
   transition: all 0.3s;
-}
-
-.nav-item-indicator {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%) scaleX(0);
-  width: 4px;
-  height: 20px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, #1e40af 0%, #3b82f6 100%);
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-.el-menu-item.is-active .nav-item-indicator {
-  opacity: 1;
-  transform: translateY(-50%) scaleX(1);
 }
 
 .el-menu-item.is-active {
-  background-color: rgba(30, 64, 175, 0.08);
-  color: #1e40af;
-  font-weight: 600;
+  background-color: transparent;
+  color: #4338ca;
+  font-weight: 700;
 }
 
-.sidebar-footer {
-  margin-top: auto;
-  padding: 16px 24px;
-  border-top: 1px solid rgba(226, 232, 240, 0.8);
+.el-menu-item.is-active::before {
+  width: 100%;
 }
 
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: #64748b;
-}
 
-.theme-toggle .el-icon {
-  font-size: 16px;
-}
-
-.theme-switch {
-  margin-left: auto;
-}
 
 /* Responsive Adjustments */
 @media (max-width: 1200px) {
@@ -269,7 +233,7 @@ const handleMenuSelect = (index) => {
   
   .nav-item span, 
   .category-title,
-  .theme-toggle span {
+  .help-link span {
     display: none;
   }
   
@@ -283,7 +247,7 @@ const handleMenuSelect = (index) => {
     margin-right: 0;
   }
   
-  .theme-toggle {
+  .help-link {
     justify-content: center;
   }
 }

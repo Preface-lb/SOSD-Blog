@@ -107,7 +107,7 @@
 }
 
 .logo-png {
-  height: 100px;
+  height: 80px;
   object-fit: contain;
 }
 

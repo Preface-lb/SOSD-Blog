@@ -75,11 +75,12 @@
 </template>
 
 <script>
+import homebg from "../assets/home-bg.png"
 export default {
   name: 'CoverComponent',
   data() {
     return {
-      bgImage: 'src/assets/home-bg.png',
+      bgImage: homebg,
       hoveredButton: null,
     }
   },
