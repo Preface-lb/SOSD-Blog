@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@tiptap/core": "^2.25.0",
+    "@tiptap/extension-bold": "^2.25.0",
+    "@tiptap/extension-bullet-list": "^2.25.0",
+    "@tiptap/extension-heading": "^2.25.0",
+    "@tiptap/extension-italic": "^2.25.0",
+    "@tiptap/extension-link": "^2.25.0",
+    "@tiptap/extension-ordered-list": "^2.25.0",
+    "@tiptap/starter-kit": "^2.25.0",
+    "@tiptap/vue-3": "^2.25.0",
+    "axios": "^1.10.0",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^2.1.0"
+  }
+}
