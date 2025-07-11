@@ -1,6 +1,6 @@
 <template>
-  <div class="rich-text-editor" :class="{ 'is-focused': isFocused, 'is-readonly': readonly }">
-    <!-- 工具栏 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+      <!-- 工具栏 -->
     <div class="editor-toolbar" v-if="!readonly">
       <EditorToolbar 
         :editor="editor" 
@@ -9,6 +9,16 @@
         @insert-table="handleInsertTable"
       />
     </div>
+  <div class="rich-text-editor" :class="{ 'is-focused': isFocused, 'is-readonly': readonly }">
+    <!-- 工具栏
+    <div class="editor-toolbar" v-if="!readonly">
+      <EditorToolbar 
+        :editor="editor" 
+        @upload-image="handleImageUpload"
+        @insert-link="handleInsertLink"
+        @insert-table="handleInsertTable"
+      />
+    </div> -->
 
     <!-- 编辑器容器 -->
     <div class="editor-container">
@@ -157,17 +167,14 @@
           <button @click="executeCommand('toggleBold')" class="context-menu-item">
             <i class="fas fa-bold"></i>
             <span>粗体</span>
-            <kbd>Ctrl+B</kbd>
           </button>
           <button @click="executeCommand('toggleItalic')" class="context-menu-item">
             <i class="fas fa-italic"></i>
             <span>斜体</span>
-            <kbd>Ctrl+I</kbd>
           </button>
           <button @click="executeCommand('toggleUnderline')" class="context-menu-item">
             <i class="fas fa-underline"></i>
-            <span>下划线</span>
-            <kbd>Ctrl+U</kbd>
+            <span>下划线</span>            
           </button>
         </div>
         <div class="context-menu-separator"></div>
@@ -203,7 +210,33 @@
       </div>
     </div>
 
-    <!-- 底部状态栏 -->
+    <!-- 底部状态栏
+    <div class="editor-footer" v-if="showFooter">
+      <div class="status-info">
+        <span class="word-count">{{ wordCount }} 词</span>
+        <span class="char-count">{{ charCount }} 字符</span>
+        <span v-if="maxCharacters" class="char-limit" :class="{ 'over-limit': isOverLimit }">
+          {{ charCount }}/{{ maxCharacters }}
+        </span>
+      </div>
+      <div class="editor-actions">
+        <button @click="saveContent" class="save-btn" title="保存 (Ctrl+S)">
+          <i class="fas fa-save"></i>
+          保存
+        </button>
+      </div>
+    </div> -->
+
+    <!-- 隐藏的文件输入 -->
+    <input
+      ref="fileInput"
+      type="file"
+      accept="image/*"
+      @change="handleFileUpload"
+      style="display: none"
+    />
+  </div>
+     <!-- 底部状态栏 -->
     <div class="editor-footer" v-if="showFooter">
       <div class="status-info">
         <span class="word-count">{{ wordCount }} 词</span>
@@ -219,16 +252,6 @@
         </button>
       </div>
     </div>
-
-    <!-- 隐藏的文件输入 -->
-    <input
-      ref="fileInput"
-      type="file"
-      accept="image/*"
-      @change="handleFileUpload"
-      style="display: none"
-    />
-  </div>
 </template>
 
 <script setup>
@@ -552,13 +575,16 @@ defineExpose({
 }
 
 .editor-content {
-  min-height: 300px;
+  min-height: 815px;
+  max-height: 815px;
   padding: 20px;
   outline: none;
   font-size: 16px;
   line-height: 1.6;
   color: #374151;
+  overflow-y: auto;
 }
+
 
 /* 气泡菜单样式 */
 .bubble-menu {

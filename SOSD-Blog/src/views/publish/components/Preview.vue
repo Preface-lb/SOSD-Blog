@@ -2,18 +2,18 @@
   <div class="preview-container">
     <div class="preview-header">
       <div class="preview-title">
-        <i class="fa fa-eye"></i>
+        <i class="fas fa-eye"></i>
         预览模式
       </div>
       <div class="preview-actions">
         <button @click="toggleFullscreen" class="preview-btn" title="全屏预览">
-          <i :class="isFullscreen ? 'fa fa-compress' : 'fa fa-expand'"></i>
+          <i :class="isFullscreen ? 'fas fa-compress' : 'fas fa-expand'"></i>
         </button>
         <button @click="printDocument" class="preview-btn" title="打印">
-          <i class="fa fa-print"></i>
+          <i class="fas fa-print"></i>
         </button>
         <button @click="exportToPDF" class="preview-btn" title="导出PDF">
-          <i class="fa fa-file-pdf-o"></i>
+          <i class="fas fa-file-pdf-o"></i>
         </button>
       </div>
     </div>

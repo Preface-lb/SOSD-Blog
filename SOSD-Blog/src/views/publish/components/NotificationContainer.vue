@@ -1,5 +1,4 @@
 <template>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <div class="notification-container">
     <TransitionGroup name="notification" tag="div">
       <div
@@ -21,7 +20,7 @@
           </div>
         </div>
         <button @click.stop="removeNotification(notification.id)" class="notification-close">
-          <i class="fa fa-times"></i>
+          <i class="fas fa-times"></i>
         </button>
         <div 
           v-if="notification.duration > 0"
@@ -46,14 +45,14 @@ const emit = defineEmits(['remove'])
 const getIcon = (type) => {
   switch (type) {
     case 'success':
-      return 'fa fa-check-circle'
+      return 'fas fa-check-circle'
     case 'error':
-      return 'fa fa-exclamation-circle'
+      return 'fas fa-exclamation-circle'
     case 'warning':
-      return 'fa fa-exclamation-triangle'
+      return 'fas fa-exclamation-triangle'
     case 'info':
     default:
-      return 'fa fa-info-circle'
+      return 'fas fa-info-circle'
   }
 }
 

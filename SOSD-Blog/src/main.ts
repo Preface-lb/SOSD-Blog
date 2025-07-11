@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import 'font-awesome/css/font-awesome.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'

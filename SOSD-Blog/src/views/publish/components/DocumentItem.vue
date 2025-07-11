@@ -14,24 +14,24 @@
             :class="['action-btn', 'favorite-btn', { active: document.isFavorite }]"
             :title="document.isFavorite ? '取消收藏' : '收藏'"
           >
-            <i :class="document.isFavorite ? 'fa fa-star' : 'fa fa-star-o'"></i>
+            <i :class="document.isFavorite ? 'fas fa-star' : 'fas fa-star-o'"></i>
           </button>
           <div class="dropdown">
             <button @click.stop="toggleDropdown" class="action-btn dropdown-btn">
-              <i class="fa fa-ellipsis-v"></i>
+              <i class="fas fa-ellipsis-v"></i>
             </button>
             <div v-if="showDropdown" class="dropdown-menu">
               <button @click.stop="duplicateDocument" class="dropdown-item">
-                <i class="fa fa-copy"></i>
+                <i class="fas fa-copy"></i>
                 复制文档
               </button>
               <button @click.stop="exportDocument" class="dropdown-item">
-                <i class="fa fa-download"></i>
+                <i class="fas fa-download"></i>
                 导出
               </button>
               <div class="dropdown-divider"></div>
               <button @click.stop="deleteDocument" class="dropdown-item danger">
-                <i class="fa fa-trash"></i>
+                <i class="fas fa-trash"></i>
                 删除
               </button>
             </div>
@@ -46,11 +46,11 @@
       <div class="document-meta">
         <div class="meta-row">
           <span class="meta-item">
-            <i class="fa fa-calendar-o"></i>
+            <i class="fas fa-calendar-o"></i>
             {{ formatDate(document.updatedAt || document.createdAt) }}
           </span>
           <span class="meta-item">
-            <i class="fa fa-file-text-o"></i>
+            <i class="fas fa-file-text-o"></i>
             {{ document.wordCount || 0 }} 字
           </span>
         </div>
@@ -144,10 +144,10 @@ const getPreviewText = () => {
 // 获取状态图标
 const getStatusIcon = () => {
   switch (props.document.status) {
-    case 'draft': return 'fa fa-edit'
-    case 'published': return 'fa fa-globe'
-    case 'archived': return 'fa fa-archive'
-    default: return 'fa fa-file-o'
+    case 'draft': return 'fas fa-edit'
+    case 'published': return 'fas fa-globe'
+    case 'archived': return 'fas fa-archive'
+    default: return 'fas fa-file-o'
   }
 }
 

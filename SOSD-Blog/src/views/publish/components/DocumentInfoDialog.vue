@@ -4,7 +4,7 @@
       <div class="dialog-header">
         <h3>文档信息</h3>
         <button @click="closeDialog" class="close-btn">
-          <i class="fa fa-times"></i>
+          <i class="fas fa-times"></i>
         </button>
       </div>
       
@@ -74,7 +74,7 @@
                     @click="removeTag(index)"
                     class="tag-remove"
                   >
-                    <i class="fa fa-times"></i>
+                    <i class="fas fa-times"></i>
                   </button>
                 </span>
               </div>
@@ -88,7 +88,7 @@
                   placeholder="输入标签后按回车添加"
                 />
                 <button type="button" @click="addTag" class="add-tag-btn">
-                  <i class="fa fa-plus"></i>
+                  <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>

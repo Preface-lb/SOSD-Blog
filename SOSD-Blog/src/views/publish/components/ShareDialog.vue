@@ -4,7 +4,7 @@
       <div class="dialog-header">
         <h3>分享文档</h3>
         <button @click="$emit('close')" class="close-btn">
-          <i class="fa fa-times"></i>
+          <i class="fas fa-times"></i>
         </button>
       </div>
       
@@ -20,7 +20,7 @@
               @click="selectLink"
             />
             <button @click="copyLink" class="copy-btn">
-              <i class="fa fa-copy"></i>
+              <i class="fas fa-copy"></i>
               复制
             </button>
           </div>

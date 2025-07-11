@@ -3,7 +3,7 @@
     <div class="list-header">
       <div class="search-container">
         <div class="search-input-wrapper">
-          <i class="fa fa-search search-icon"></i>
+          <i class="fas fa-search search-icon"></i>
           <input 
             type="text" 
             v-model="searchQuery" 
@@ -16,7 +16,7 @@
             @click="clearSearch" 
             class="clear-btn"
           >
-            <i class="fa fa-times"></i>
+            <i class="fas fa-times"></i>
           </button>
         </div>
       </div>
@@ -43,18 +43,18 @@
         <option value="wordCount">字数</option>
       </select>
       <button @click="toggleSortOrder" class="sort-order-btn" :title="sortOrder === 'desc' ? '降序' : '升序'">
-        <i :class="sortOrder === 'desc' ? 'fa fa-sort-amount-desc' : 'fa fa-sort-amount-asc'"></i>
+        <i :class="sortOrder === 'desc' ? 'fas fa-sort-amount-desc' : 'fas fa-sort-amount-asc'"></i>
       </button>
     </div>
     
     <div v-if="filteredDocuments.length === 0" class="empty-list">
       <div class="empty-icon">
-        <i class="fa fa-file-text-o"></i>
+        <i class="fas fa-file-text-o"></i>
       </div>
       <p v-if="searchQuery">未找到匹配的文档</p>
       <p v-else>暂无文档</p>
       <button v-if="!searchQuery" @click="$emit('create-document')" class="create-first-btn">
-        <i class="fa fa-plus"></i>
+        <i class="fas fa-plus"></i>
         创建第一个文档
       </button>
     </div>
@@ -78,7 +78,7 @@
           :disabled="currentPage === 1"
           class="page-btn"
         >
-          <i class="fa fa-chevron-left"></i>
+          <i class="fas fa-chevron-left"></i>
         </button>
         <span class="page-info">{{ currentPage }} / {{ totalPages }}</span>
         <button 
@@ -86,7 +86,7 @@
           :disabled="currentPage === totalPages"
           class="page-btn"
         >
-          <i class="fa fa-chevron-right"></i>
+          <i class="fas fa-chevron-right"></i>
         </button>
       </div>
     </div>
@@ -118,9 +118,9 @@ const currentPage = ref(1)
 const pageSize = 20
 
 const filterTabs = [
-  { key: 'all', label: '全部', icon: 'fa fa-files-o' },
-  { key: 'recent', label: '最近', icon: 'fa fa-clock-o' },
-  { key: 'favorites', label: '收藏', icon: 'fa fa-star' }
+  { key: 'all', label: '全部', icon: 'fas fa-file' },
+  { key: 'recent', label: '最近', icon: 'fas fa-clock' },
+  { key: 'favorites', label: '收藏', icon: 'fas fa-star' }
 ]
 
 // 计算过滤后的文档列表

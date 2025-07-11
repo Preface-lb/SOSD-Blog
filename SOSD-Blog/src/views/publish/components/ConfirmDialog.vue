@@ -56,13 +56,13 @@ const emit = defineEmits(['confirm', 'cancel'])
 const getIcon = () => {
   switch (props.type) {
     case 'warning':
-      return 'fa fa-exclamation-triangle'
+      return 'fas fa-exclamation-triangle'
     case 'danger':
-      return 'fa fa-exclamation-circle'
+      return 'fas fa-exclamation-circle'
     case 'success':
-      return 'fa fa-check-circle'
+      return 'fas fa-check-circle'
     default:
-      return 'fa fa-info-circle'
+      return 'fas fa-info-circle'
   }
 }
 

@@ -1,4 +1,5 @@
 <template>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <div class="publish-container">
     <!-- 移动端菜单按钮 -->
     <button 
@@ -7,7 +8,7 @@
       class="mobile-menu-btn"
       :class="{ active: showMobileSidebar }"
     >
-      <i class="fa fa-bars"></i>
+      <i class="fas fa-bars"></i>
     </button>
 
     <!-- 侧边栏导航 -->
@@ -20,7 +21,7 @@
     >
       <div class="sidebar-header">
         <div class="logo">
-          <i class="fa fa-file-text"></i>
+          <i class="fas fa-file-text"></i>
           <span v-if="!sidebarCollapsed || isMobile">文档编辑器</span>
         </div>
         <button 
@@ -29,25 +30,25 @@
           class="collapse-btn"
           :title="sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'"
         >
-          <i :class="sidebarCollapsed ? 'fa fa-chevron-right' : 'fa fa-chevron-left'"></i>
+          <i :class="sidebarCollapsed ? 'fas fa-chevron-right' : 'fas fa-chevron-left'"></i>
         </button>
         <button 
           v-if="isMobile"
           @click="toggleMobileSidebar" 
           class="close-btn"
         >
-          <i class="fa fa-times"></i>
+          <i class="fas fa-times"></i>
         </button>
       </div>
       
       <div class="sidebar-content">
         <div class="sidebar-actions">
           <button @click="createNewDocument" class="create-btn">
-            <i class="fa fa-plus"></i>
+            <i class="fas fa-plus"></i>
             <span v-if="!sidebarCollapsed || isMobile">新建文档</span>
           </button>
           <button @click="importDocument" class="import-btn">
-            <i class="fa fa-upload"></i>
+            <i class="fas fa-upload"></i>
             <span v-if="!sidebarCollapsed || isMobile">导入文档</span>
           </button>
         </div>
@@ -55,11 +56,11 @@
         <!-- 文档统计 -->
         <div v-if="!sidebarCollapsed || isMobile" class="document-stats">
           <div class="stat-item">
-            <i class="fa fa-file-o"></i>
+            <i class="fas fa-file"></i>
             <span>{{ documents.length }} 个文档</span>
           </div>
           <div class="stat-item">
-            <i class="fa fa-star"></i>
+            <i class="fas fa-star"></i>
             <span>{{ favoriteCount }} 个收藏</span>
           </div>
         </div>
@@ -89,36 +90,22 @@
       <div v-if="!selectedDocument" class="empty-state">
         <div class="empty-illustration">
           <div class="illustration-bg">
-            <i class="fa fa-file-text-o"></i>
+            <i class="fas fa-file-text"></i>
           </div>
         </div>
         <h2>开始创作您的文档</h2>
         <p>选择左侧的文档进行编辑，或创建一个新文档开始写作</p>
         <div class="empty-actions">
           <button @click="createNewDocument" class="primary-btn">
-            <i class="fa fa-plus"></i>
+            <i class="fas fa-plus"></i>
             创建新文档
           </button>
           <button @click="importDocument" class="secondary-btn">
-            <i class="fa fa-upload"></i>
+            <i class="fas fa-upload"></i>
             导入文档
           </button>
         </div>
         
-        <!-- 快速入门提示 -->
-        <div class="quick-tips">
-          <h3>快速入门</h3>
-          <div class="tips-grid">
-            <div class="tip-item">
-              <i class="fa fa-keyboard-o"></i>
-              <span>使用 Ctrl+N 快速新建</span>
-            </div>
-            <div class="tip-item">
-              <i class="fa fa-save"></i>
-              <span>Ctrl+S 保存文档</span>
-            </div>
-          </div>
-        </div>
       </div>
       
       <!-- 文档编辑区 -->
@@ -141,11 +128,11 @@
                 {{ getStatusText() }}
               </div>
               <div class="last-modified">
-                <i class="fa fa-clock-o"></i>
+                <i class="fas fa-clock-o"></i>
                 {{ getRelativeTime(selectedDocument.updatedAt) }}
               </div>
               <div class="document-size-info">
-                <i class="fa fa-file-text-o"></i>
+                <i class="fas fa-file-text-o"></i>
                 <span>{{ getFileSize(selectedDocument.content) }}</span>
                 <div class="size-progress-bar">
                   <div class="progress-bar-fill" :style="{ width: getSizePercentage() }"></div>
@@ -163,40 +150,40 @@
                 :disabled="isSaving"
                 :title="isSaving ? '保存中...' : '保存文档 (Ctrl+S)'"
               >
-                <i :class="isSaving ? 'fa fa-spinner fa-spin' : 'fa fa-save'"></i>
+                <i :class="isSaving ? 'fas fa-spinner fa-spin' : 'fas fa-save'"></i>
                 <span v-if="!isMobile">{{ isSaving ? '保存中' : '保存' }}</span>
               </button>
               
               <button @click="shareDocument" class="share-btn" title="分享文档">
-                <i class="fa fa-share-alt"></i>
+                <i class="fas fa-share-alt"></i>
                 <span v-if="!isMobile">分享</span>
               </button>
               
               <!-- 更多操作下拉菜单 -->
               <div class="dropdown">
                 <button @click="toggleMoreActions" class="more-btn" title="更多操作">
-                  <i class="fa fa-ellipsis-v"></i>
+                  <i class="fas fa-ellipsis-v"></i>
                 </button>
                 <div v-if="showMoreActions" class="dropdown-menu">
                   <button @click="exportDocument" class="dropdown-item">
-                    <i class="fa fa-download"></i>
+                    <i class="fas fa-download"></i>
                     导出文档
                   </button>
                   <button @click="duplicateDocument(selectedDocument.id)" class="dropdown-item">
-                    <i class="fa fa-copy"></i>
+                    <i class="fas fa-copy"></i>
                     复制文档
                   </button>
                   <button @click="toggleFavorite(selectedDocument.id)" class="dropdown-item">
-                    <i :class="selectedDocument.isFavorite ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                    <i class="fas fa-star"></i>
                     {{ selectedDocument.isFavorite ? '取消收藏' : '收藏文档' }}
                   </button>
                   <button @click="showDocumentInfo = true" class="dropdown-item">
-                    <i class="fa fa-info-circle"></i>
+                    <i class="fas fa-info-circle"></i>
                     文档信息
                   </button>
                   <div class="dropdown-divider"></div>
                   <button @click="confirmDeleteDocument(selectedDocument.id)" class="dropdown-item danger">
-                    <i class="fa fa-trash"></i>
+                    <i class="fas fa-trash"></i>
                     删除文档
                   </button>
                 </div>
@@ -640,10 +627,10 @@ const getRelativeTime = (dateString) => {
 
 const getStatusIcon = () => {
   switch (selectedDocument.value?.status) {
-    case 'draft': return 'fa fa-edit'
-    case 'published': return 'fa fa-globe'
-    case 'archived': return 'fa fa-archive'
-    default: return 'fa fa-file-o'
+    case 'draft': return 'fas fa-edit'
+    case 'published': return 'fas fa-globe'
+    case 'archived': return 'fas fa-archive'
+    default: return 'fas fa-file-o'
   }
 }
 
@@ -1024,41 +1011,7 @@ const handleBeforeUnload = (event) => {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.quick-tips {
-  width: 100%;
-  max-width: 500px;
-}
 
-.quick-tips h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #495057;
-  margin-bottom: 16px;
-}
-
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-}
-
-.tip-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px;
-  background: white;
-  border: 1px solid #e9ecef;
-  border-radius: 6px;
-  font-size: 14px;
-  color: #6c757d;
-}
-
-.tip-item i {
-  color: #165DFF;
-  width: 16px;
-  text-align: center;
-}
 
 .document-workspace {
   display: flex;
@@ -1382,10 +1335,7 @@ const handleBeforeUnload = (event) => {
     max-width: 300px;
   }
   
-  .tips-grid {
-    grid-template-columns: 1fr;
-  }
-  
+
   .document-meta {
     gap: 12px;
   }
