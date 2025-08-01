@@ -12,6 +12,8 @@ import { friendsRoute } from './routes'
 
 import { publishRoute } from './routes'
 
+import { docReaderRoute } from './routes'
+
 import { createRouter, createWebHashHistory, type Router } from 'vue-router'
 
 export const routes = [
@@ -44,6 +46,11 @@ export const routes = [
     path: '/publish',
     children: publishRoute,
   },
+
+  {
+    Path: '/docreader',
+    children: docReaderRoute,
+  },
   {
     path: '/403',
     name: 'Forbidden',
@@ -56,7 +63,7 @@ export const routes = [
 
 const router: Router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
 })
 
-export default router    
+export default router

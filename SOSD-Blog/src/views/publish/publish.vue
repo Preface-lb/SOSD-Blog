@@ -556,15 +556,18 @@ const shareDocument = () => {
 const exportDocument = () => {
   if (!selectedDocument.value) return
   
+  // 使用文档内容作为Markdown源
   const content = selectedDocument.value.content || ''
-  const blob = new Blob([content], { type: 'text/html' })
+  // 更改MIME类型为text/markdown
+  const blob = new Blob([content], { type: 'text/markdown' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `${selectedDocument.value.title || '未命名文档'}.html`
+  // 更改文件扩展名为.md
+  a.download = `${selectedDocument.value.title || '未命名文档'}.md`
   a.click()
   URL.revokeObjectURL(url)
-  showNotification('文档导出成功', 'success')
+  showNotification('Markdown文档导出成功', 'success')
 }
 
 const importDocument = () => {
